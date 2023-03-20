@@ -11,9 +11,6 @@ class TestAddGroup(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=r'')
         self.driver.implicitly_wait(30)
-        self.base_url = "https://www.google.com/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
     
     def test_add_group(self):
         driver = self.driver
