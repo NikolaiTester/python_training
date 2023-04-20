@@ -14,7 +14,7 @@ class TestAddContacts(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.create_contacts(wd, Contacts(Name="Name", middlename="middlename", lastname="lastname", nickname="nickname", title="title", company="company", address="address", mobile="mobile", work="work", fax="fax", email="email", email2="email2", email3="email3", homepage="homepage", byear="byear", ayear="ayear", address2="address2", phone2="phone2", notes="notes", home="home" ))
+        self.create_contacts(wd, Contacts(name="name", middlename="middlename", lastname="lastname", nickname="nickname", title="title", company="company", address="address", mobile="mobile", work="work", fax="fax", email="email", email2="email2", email3="email3", homepage="homepage", byear="byear", ayear="ayear", address2="address2", phone2="phone2", notes="notes", home="home" ))
         self.return_to_home(wd)
         self.logout(wd)
 
@@ -30,7 +30,7 @@ class TestAddContacts(unittest.TestCase):
         wd.get("http://localhost/addressbook/edit.php")
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contacts.Name)
+        wd.find_element_by_name("firstname").send_keys(contacts.name)
         wd.find_element_by_name("middlename").clear()
         wd.find_element_by_name("middlename").send_keys(contacts.middlename)
         wd.find_element_by_name("lastname").clear()
