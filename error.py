@@ -164,3 +164,32 @@ c:\python39\lib\site-packages\urllib3\util\timeout.py:156: ValueError
 =============================================== short test summary info ===============================================
 ERROR test_add_group.py::test_add_empty_group - ValueError: Timeout value connect was <object object at 0x0000020541C38810>, but it must be an int, float or None.
 ERROR test_add_group.py::test_add_group - ValueError: Timeout value connect was <object object at 0x0000020541C38810>, but it must be an int, float or None.
+
+
+PySocks	1.7.1	1.7.1
+async-generator	1.10	1.10
+attrs	23.1.0	23.1.0
+certifi	2023.5.7	2023.5.7
+cffi	1.15.1	1.15.1
+colorama	0.4.6	0.4.6
+exceptiongroup	1.1.1	1.1.1
+h11	0.14.0	0.14.0
+idna	3.4	3.4
+iniconfig	2.0.0	2.0.0
+outcome	1.2.0	1.2.0
+packaging	23.1	23.1
+pip	23.1.2	23.1.2
+pluggy	1.0.0	1.0.0
+pycparser	2.21	2.21
+pytest	7.3.1	7.3.1
+selenium	3.141.0	4.9.1
+setuptools	67.7.2	67.8.0
+sniffio	1.3.0	1.3.0
+sortedcontainers	2.4.0	2.4.0
+tomli	2.0.1	2.0.1
+trio	0.22.0	0.22.0
+trio-websocket	0.10.2	0.10.2
+urllib3	2.0.2	2.0.2
+wheel	0.40.0	0.40.0
+wsproto	1.2.0	1.2.0
+
