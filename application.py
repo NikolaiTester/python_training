@@ -33,7 +33,7 @@ class Application:
         # submit group creations
         wd.find_element_by_name("submit").click()
         self.return_to_group_page()
-# comment
+# commenttt
     def open_groups_page(self):
         wd = self.wd
         wd.find_element_by_link_text("groups").click()
