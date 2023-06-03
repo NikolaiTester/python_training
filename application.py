@@ -1,16 +1,27 @@
 from selenium import webdriver
 
+
 class Application:
 
     def __init__(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(60)
 
-    def logout(self):
+    def open_home_page(self):
         wd = self.wd
-        wd.find_element_by_link_text("Logout").click()
+        wd.get("http://localhost/addressbook/index.php")
 
-    def return_to_group_page(self):
+    def login(self, username, password):
+        wd = self.wd
+        self.open_home_page()
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").clear()
+        wd.find_element_by_name("user").send_keys(username)
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys(password)
+        wd.find_element_by_id("LoginForm").submit()
+
+    def open_groups_page(self):
         wd = self.wd
         wd.find_element_by_link_text("groups").click()
 
@@ -34,23 +45,13 @@ class Application:
         wd.find_element_by_name("submit").click()
         self.return_to_group_page()
 
-    def open_groups_page(self):
+    def return_to_group_page(self):
         wd = self.wd
         wd.find_element_by_link_text("groups").click()
 
-    def login(self, username, password):
+    def logout(self):
         wd = self.wd
-        self.open_home_page()
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(username)
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(password)
-        wd.find_element_by_id("LoginForm").submit()
-
-    def open_home_page(self):
-        wd = self.wd
-        wd.get("http://localhost/addressbook/index.php")
+        wd.find_element_by_link_text("Logout").click()
 
     def destroy(self):
         self.wd.quit()
@@ -61,7 +62,6 @@ class ApplicationContact:
     def __init__(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(60)
-
 
     def logout(self):
         wd = self.wd
