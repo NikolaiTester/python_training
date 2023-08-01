@@ -95,6 +95,7 @@ class ContactHelper:
         # submit delition
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to.alert.accept()
+        self.contact_cache = None
 
 
     def count(self):
