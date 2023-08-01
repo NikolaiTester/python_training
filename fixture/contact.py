@@ -90,7 +90,6 @@ class ContactHelper:
     def delete_first_contact(self):
         wd = self.app.wd
         self.open_home_page()
-        wd.get("http://localhost/addressbook/")
         wd.find_element_by_name("selected[]").click()
         # submit delition
         wd.find_element_by_xpath("//input[@value='Delete']").click()
