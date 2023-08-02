@@ -1,4 +1,5 @@
 from model.contact import Contact
+import time
 class ContactHelper:
 
     def __init__(self, app):
@@ -88,14 +89,11 @@ class ContactHelper:
     def modify_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.open_home_page()
-        self.select_contact_by_index(index)
-        wd.get("http://localhost/addressbook/")
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         self.completion(contact)
         wd.find_element_by_name("update").click()
         self.contact_cache = None
 
-    modify_first_contact
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
 
