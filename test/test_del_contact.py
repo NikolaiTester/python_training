@@ -12,8 +12,9 @@ def test_delete_some_contact(app):
                     title="title",
                     company="company",
                     address="address",
-                    mobile="mobile",
-                    workmobile="work",
+                    homephone="home",
+                    mobilephone="mobile",
+                    workphone="work",
                     fax="fax",
                     email="email",
                     email2="email2",
@@ -22,9 +23,8 @@ def test_delete_some_contact(app):
                     byear="byear",
                     ayear="ayear",
                     address2="address2",
-                    phone2="phone2",
-                    notes="notes",
-                    home="home"
+                    secondaryphone="phone2",
+                    notes="notes"
                     ))
     old_contact = app.contact.get_contact_list()
     index = randrange(len(old_contact))

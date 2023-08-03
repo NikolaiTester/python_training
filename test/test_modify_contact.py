@@ -11,8 +11,9 @@ def test_modify_contact(app):
                     title="title",
                     company="company",
                     address="address",
-                    mobile="mobile",
-                    workmobile="work",
+                    homephone="home",
+                    mobilephone="mobile",
+                    workphone="work",
                     fax="fax",
                     email="email",
                     email2="email2",
@@ -21,9 +22,8 @@ def test_modify_contact(app):
                     byear="byear",
                     ayear="ayear",
                     address2="address2",
-                    phone2="phone2",
-                    notes="notes",
-                    home="home"
+                    secondaryphone="phone2",
+                    notes="notes"
                     ))
     old_contact = app.contact.get_contact_list()
     index = randrange(len(old_contact))
@@ -35,8 +35,9 @@ def test_modify_contact(app):
         title="titleModify",
         company="companyModify",
         address="addressModyfy",
-        mobile="mobileModify",
-        workmobile="workModify",
+        homephone="home",
+        mobilephone="mobile",
+        workphone="work",
         fax="faxModify",
         email="emailModify",
         email2="email2Modify",
@@ -45,9 +46,8 @@ def test_modify_contact(app):
         byear="Mod1",
         ayear="1999",
         address2="address2Modify",
-        phone2="phone2Modify",
+        secondaryphone="phone2",
         notes="notesModify",
-        home="homeModify"
     )
     contact.id = old_contact[index].id
     app.contact.modify_contact_by_index(index, contact)

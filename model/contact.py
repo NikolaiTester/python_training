@@ -8,8 +8,9 @@ class Contact:
                  title=None,
                  company=None,
                  address=None,
-                 mobile=None,
-                 workmobile=None,
+                 homephone=None,
+                 mobilephone=None,
+                 workphone=None,
                  fax=None,
                  email=None,
                  email2=None,
@@ -18,9 +19,8 @@ class Contact:
                  byear=None,
                  ayear=None,
                  address2=None,
-                 phone2=None,
+                 secondaryphone=None,
                  notes=None,
-                 home=None,
                  name=None,
                  lastname=None,
                  id=None):
@@ -31,8 +31,9 @@ class Contact:
         self.title = title
         self.company = company
         self.address = address
-        self.mobile = mobile
-        self.workmobile = workmobile
+        self.homephone = homephone
+        self.mobilephone = mobilephone
+        self.workphone = workphone
         self.fax = fax
         self.email = email
         self.email2 = email2
@@ -41,9 +42,8 @@ class Contact:
         self.byear = byear
         self.ayear = ayear
         self.address2 = address2
-        self.phone2 = phone2
+        self.secondaryphone = secondaryphone
         self.notes = notes
-        self.home = home
         self.id = id
 
     def __repr__(self):
