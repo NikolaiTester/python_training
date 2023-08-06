@@ -3,6 +3,7 @@ class Contact:
 
 
     def __init__(self,
+                 name=None,
                  middlename=None,
                  nickname=None,
                  title=None,
@@ -21,7 +22,6 @@ class Contact:
                  address2=None,
                  secondaryphone=None,
                  notes=None,
-                 name=None,
                  lastname=None,
                  id=None):
         self.name = name
