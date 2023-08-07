@@ -3,6 +3,7 @@ class Contact:
 
 
     def __init__(self,
+                 all_emails_from_home_page=None,
                  all_phones_from_home_page=None,
                  name=None,
                  middlename=None,
@@ -47,6 +48,7 @@ class Contact:
         self.notes = notes
         self.id = id
         self.all_phones_from_home_page = all_phones_from_home_page
+        self.all_emails_from_home_page = all_emails_from_home_page
 
     def __repr__(self):
         return "%s:%s:%s" % (self.id, self.name, self.lastname)
