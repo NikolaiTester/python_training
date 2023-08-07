@@ -31,23 +31,14 @@ def test_modify_contact(app):
         name="nameModify",
         middlename="middlenameModify",
         lastname="lastnameModify",
-        nickname="nicknameModify",
-        title="titleModify",
-        company="companyModify",
         address="addressModyfy",
         homephone="home",
         mobilephone="mobile",
         workphone="work",
-        fax="faxModify",
         email="emailModify",
         email2="email2Modify",
         email3="email3Modify",
-        homepage="homepageModify",
-        byear="Mod1",
-        ayear="1999",
-        address2="address2Modify",
-        secondaryphone="phone2",
-        notes="notesModify",
+        secondaryphone="phone2"
     )
     contact.id = old_contact[index].id
     app.contact.modify_contact_by_index(index, contact)
