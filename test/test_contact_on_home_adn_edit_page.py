@@ -1,7 +1,30 @@
 import re
-
+from model.contact import Contact
 
 def test_contacts_on_home_and_edit_page(app):
+    if app.contact.count() == 0:
+        app.contact.create(
+            Contact(name="name",
+                    middlename="middlename",
+                    lastname="lastname",
+                    nickname="nickname",
+                    title="title",
+                    company="company",
+                    address="address",
+                    homephone="home",
+                    mobilephone="mobile",
+                    workphone="work",
+                    fax="fax",
+                    email="email",
+                    email2="email2",
+                    email3="email3",
+                    homepage="homepage",
+                    byear="byear",
+                    ayear="ayear",
+                    address2="address2",
+                    secondaryphone="phone2",
+                    notes="notes"
+                    ))
     contact_from_home_page = app.contact.get_contact_list()[0]
     contact_from_edit_page = app.contact.get_contact_info_from_edit_page(0)
     assert contact_from_home_page.lastname == contact_from_edit_page.lastname
