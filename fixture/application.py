@@ -7,9 +7,18 @@ from fixture.contact import ContactHelper
 class Application:
 
 # создание фикстур, инициализация драйвера
-    def __init__(self):
-        self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(1)
+    def __init__(self, browser=("firefox")):
+        if browser == "firefox":
+            self.wd = webdriver.Firefox()
+            self.wd.implicitly_wait(1)
+        elif browser == "chrome":
+            self.wd = webdriver.Chrome()
+            self.wd.implicitly_wait(1)
+        elif browser == "ie":
+            self.wd = webdriver.Ie()
+            self.wd.implicitly_wait(1)
+        else:
+            raise ValueError("Unrecognized browser %s" % browser)
 # конструирование помощников, передаем ссылку на саму фикстуру
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
