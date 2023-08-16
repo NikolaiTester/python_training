@@ -24,7 +24,7 @@ class ContactHelper:
     def create(self, contact):
         wd = self.app.wd
         self.open_home_page()
-        wd.get("http://localhost/addressbook/")
+        wd.get(self.app.base_url)
         wd.find_element_by_link_text("add new").click()
         self.completion(contact)
         wd.find_element_by_name("submit").click()

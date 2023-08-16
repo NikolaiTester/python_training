@@ -37,7 +37,7 @@ class Application:
     def return_to_home(self):
         wd = self.wd
         wd.find_element_by_link_text("home").click()
-        wd.get("http://localhost/addressbook/")
+        wd.get(self.app.base_url)
 
     def is_valid(self):
         try:
