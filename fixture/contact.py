@@ -151,6 +151,34 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         self.contact_cache = None
 
+    @staticmethod
+    def clear(s):
+        return re.sub("[() -]", "", s)
+
+    def merge_phones_like_on_home_page(self, contact):
+        return "\n".join(filter(lambda x: x != "",
+                                map(lambda x: ContactHelper.clear(x),
+                                    filter(lambda x: x is not None,
+                                           [contact.home_phone, contact.mobile_phone, contact.work_phone,
+                                            contact.secondary_phone]))))
+
+    def merge_emails_like_on_home_page(self, contact):
+        return "\n".join(filter(lambda x: x != "",
+                                filter(lambda x: x is not None,
+                                       [contact.email, contact.email2, contact.email3])))
+
+    def merge_emails_from_db(self, contacts):
+        merged_users_email_list = []
+        for item in contacts:
+            merged_users_email_list.append(self.merge_emails(item))
+        return merged_users_email_list
+
+    def merge_phones_from_db(self, contacts):
+        merged_contacts_phone_list = []
+        for item in contacts:
+            merged_contacts_phone_list.append(self.merge_phones(item))
+        return merged_contacts_phone_list
+
 
 
 
