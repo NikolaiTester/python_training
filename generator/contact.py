@@ -36,7 +36,7 @@ def random_email(maxlen_1, maxlen_2, maxlen_3):
     return email
 
 testdata = [
-    Contact(name=random_ascii_letters("first_name", 10), middlename=random_ascii_letters("middlename", 10), lastname=random_ascii_letters("last_name", 10),
+    Contact(first_name=random_ascii_letters("first_name", 10), middlename=random_ascii_letters("middlename", 10), last_name=random_ascii_letters("last_name", 10),
             address=random_string("address", 15), mobilephone=random_digits(11), homephone=random_digits(15),
             workphone=random_digits(15), secondaryphone=random_digits(15), email=random_email(10, 5, 3))
     for i in range(5)

@@ -33,7 +33,7 @@ def test_contact_ui_chech_db(app):
 def test_info_on_home_page_with_db(app, db):
     app.contact.open_home_page()
     if app.contact.count() == 0:
-        app.contact.create_contact(Contact(name="name1", middlename="middlename1", lastname="lastname1", workphone='+79222148899', homephone='665555', email='mail123@m.ru', email2='testov@test.test', email3='email3@m.ru'))
+        app.contact.create_contact(Contact(first_name="name1", middlename="middlename1", last_name="lastname1", workphone='+79222148899', homephone='665555', email='mail123@m.ru', email2='testov@test.test', email3='email3@m.ru'))
         app.contact.return_to_home_page()
     contact_from_home_page = sorted(app.contact.get_contact_list(), key = Contact.id_or_max)
     contact_from_db = sorted(db.get_contact_list(), key = Contact.id_or_max)

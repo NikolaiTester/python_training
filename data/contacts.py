@@ -1,6 +1,6 @@
 from model.contact import Contact
 
 testdata = [
-    Contact(name="firstname1", lastname="lastname1", middlename="middlename1"),
-    Contact(name="firstname2", lastname="lastname2", middlename="middlename2")
+    Contact(first_name="firstname1", last_name="lastname1", middlename="middlename1"),
+    Contact(first_name="firstname2", last_name="lastname2", middlename="middlename2")
 ]

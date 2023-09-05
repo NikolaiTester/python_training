@@ -2,6 +2,7 @@ from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.contact import ContactHelper
+from fixture.navigation import NavigationHelper
 
 # Класс-менеджер, который инициализирует всех помощников
 class Application:
@@ -23,6 +24,7 @@ class Application:
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
+        self.navigation = NavigationHelper(self)
         self.base_url = base_url
         self.open_home_page()
 
