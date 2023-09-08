@@ -4,35 +4,16 @@ import random
 
 def test_modify_contact(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
-        app.contact.create(
-            Contact(name="name",
-                    middlename="middlename",
-                    lastname="lastname",
-                    nickname="nickname",
-                    title="title",
-                    company="company",
-                    address="address",
-                    homephone="home",
-                    mobilephone="mobile",
-                    workphone="work",
-                    fax="fax",
-                    email="email",
-                    email2="email2",
-                    email3="email3",
-                    homepage="homepage",
-                    byear="byear",
-                    ayear="ayear",
-                    address2="address2",
-                    secondaryphone="phone2",
-                    notes="notes"
-                    ))
+        app.contact.create_contact(Contact(name="test"))
     old_contacts = db.get_contact_list()
-    index = randrange(len(old_contacts))
     contact = random.choice(old_contacts)
-    contact.id = str(old_contacts[index].id)
-    app.contact.modify_contact_by_id(contact.id, contact)
+    contact_modify = Contact(name="name12", lastname="lastname123", address="address123")
+    contact_modify.id = contact.id
+    app.contact.modify_contact_by_id(contact.id, contact_modify)
     new_contacts = db.get_contact_list()
-    assert old_contacts == new_contacts
-    assert len(old_contacts) == app.contact.count()
+    old_contacts.remove(contact)
+    old_contacts.append(contact_modify)
+    assert len(old_contacts) == len(new_contacts)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
     if check_ui:
-        assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+        assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
