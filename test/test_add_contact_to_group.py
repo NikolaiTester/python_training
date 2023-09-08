@@ -2,14 +2,10 @@ from model.contact import Contact
 from model.group import Group
 import random
 def test_add_contact_to_group(app, db, orm):
-    # проверяем наличие хотя бы одного контакта. Если его нет - создаем
     if len(db.get_contact_list()) == 0:
-        app.contact.add(Contact(first_name="Nikolai", last_name="Test", address="Санкт-Петербург", mobilephone="7911095563", homephone="89110975565",
+        app.contact.create(Contact(first_name="Nikolai", last_name="Test", address="Санкт-Петербург", mobilephone="7911095563", homephone="89110975565",
                                 workphone="89110975567", secondaryphone="89110975568", email="email@email.ru",
                                 email2="email2@email.ru", email3="email3@email.ru"))
-    # выбираем случайный контакт
-  #  contacts = db.get_contact_list()
-   # contact = random.choice(contacts)
     # проверяем наличие хотя бы одной группы. Если её нет - создаем
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="test_del"))
@@ -19,7 +15,7 @@ def test_add_contact_to_group(app, db, orm):
     # добавляем контакт в группу
     contacts_for_add_in_group = orm.get_contacts_not_in_group(group)
     if contacts_for_add_in_group == []:
-        app.contact.add(Contact(first_name="Nikolai", last_name="Test", address="Санкт-Петербург", mobilephone="7911095563",
+        app.contact.create(Contact(first_name="Nikolai", last_name="Test", address="Санкт-Петербург", mobilephone="7911095563",
                                 homephone="89110975565",
                                 workphone="89110975567", secondaryphone="89110975568", email="email@email.ru",
                                 email2="email2@email.ru", email3="email3@email.ru"))
